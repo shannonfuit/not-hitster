@@ -19,6 +19,14 @@
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <script nonce="<%= content_security_policy_nonce %>">
+      window.__spotifySDKReady = new Promise((resolve) => {
+        window.onSpotifyWebPlaybackSDKReady = () => resolve();
+      });
+    </script>
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+
+    <script src="https://unpkg.com/html5-qrcode"></script>
     <%= javascript_importmap_tags %>
   </head>
 

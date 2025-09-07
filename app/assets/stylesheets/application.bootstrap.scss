@@ -1,2 +1,9 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+.qr-camera-select { width: 220px; }
+
+#qr-reader {
+  width: 360px;
+  max-width: 100%;
+}

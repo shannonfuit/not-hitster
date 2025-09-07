@@ -1,25 +1,20 @@
-# Be sure to restart your server when you modify this file.
+# config/initializers/content_security_policy.rb
+Rails.application.configure do
+  config.content_security_policy do |policy|
+    policy.default_src :self
+    policy.script_src  :self, "https://sdk.scdn.co", "https://unpkg.com", "https://cdn.jsdelivr.net"
+    policy.connect_src :self, "https://api.spotify.com"
+    policy.img_src     :self, :data, :blob, "https://i.scdn.co"
+    policy.media_src   :self, :blob
+    policy.worker_src  :self, :blob
+    policy.style_src   :self
+    policy.font_src    :self, :data
+    policy.frame_src :self, "https://sdk.scdn.co"
+    # (Optional) some Spotify embeds use open.spotify.com in iframes:
+    # policy.frame_src :self, "https://sdk.scdn.co", "https://open.spotify.com"
 
-# Define an application-wide content security policy.
-# See the Securing Rails Applications Guide for more information:
-# https://guides.rubyonrails.org/security.html#content-security-policy-header
-
-# Rails.application.configure do
-#   config.content_security_policy do |policy|
-#     policy.default_src :self, :https
-#     policy.font_src    :self, :https, :data
-#     policy.img_src     :self, :https, :data
-#     policy.object_src  :none
-#     policy.script_src  :self, :https
-#     policy.style_src   :self, :https
-#     # Specify URI for violation reports
-#     # policy.report_uri "/csp-violation-report-endpoint"
-#   end
-#
-#   # Generate session nonces for permitted importmap, inline scripts, and inline styles.
-#   config.content_security_policy_nonce_generator = ->(request) { request.session.id.to_s }
-#   config.content_security_policy_nonce_directives = %w(script-src style-src)
-#
-#   # Report violations without enforcing the policy.
-#   # config.content_security_policy_report_only = true
-# end
+    # Keep this if you’re using nonces (recommended)
+    config.content_security_policy_nonce_generator  = ->(_request) { SecureRandom.base64(16) }
+    config.content_security_policy_nonce_directives = %w(script-src style-src)
+  end
+end

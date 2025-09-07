@@ -1,15 +1,86 @@
-<div class="container py-5">
-  <div class="row justify-content-center">
-    <div class="col-lg-8">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <h1 class="h3 mb-3">Hitster (WIP)</h1>
-          <p class="text-muted mb-4">
-            Fresh Rails 8 app with Bootstrap via cssbundling.
-          </p>
-          <a class="btn btn-primary" href="#">Get started</a>
+<!-- app/views/home/index.html.erb -->
+<div class="container py-5"
+     data-controller="spotify-player qr"
+     data-action="hitster:play->spotify-player#playFromEvent hitster:scan-next->qr#startFullscreen"
+     data-spotify-player-token-url-value="<%= spotify_token_path %>">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 m-0">Hitster (WIP)</h1>
+    <div>
+      <% if user_signed_in? %>
+        <span class="me-2">Hello, <%= current_user.display_name %></span>
+
+        <button class="btn btn-success me-2"
+                data-action="spotify-player#connectPlayer qr#startFullscreen">
+          Play game
+        </button>
+
+        <%= button_to "Sign out", logout_path, method: :delete, class: "btn btn-outline-secondary btn-sm" %>
+      <% else %>
+        <%= link_to "Sign in with Spotify", spotify_login_path, class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+
+  <% if user_signed_in? %>
+    <div class="row g-4">
+      <!-- Player Card -->
+      <div class="col-lg-6">
+        <div class="card shadow-sm">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <strong>Player</strong>
+            <span class="small text-muted" data-spotify-player-target="status">Status: Not connected</span>
+          </div>
+          <div class="card-body">
+            <div class="d-flex gap-2 mb-3">
+            <button class="btn btn-secondary d-none"
+            data-spotify-player-target="playButton"
+            data-action="spotify-player#resume">
+              Play
+            </button>
+          
+            <button class="btn btn-secondary d-none"
+                    data-spotify-player-target="pauseButton"
+                    data-action="spotify-player#pause">
+              Pause
+            </button>
+          
+            <button class="btn btn-outline-danger"
+                    data-action="spotify-player#nextAndScan">
+              Next (Scan next)
+            </button>
+            </div>
+            <p class="text-muted small m-0">
+              Tip: Hit <em>Play game</em>, scan a card, then use <em>Next</em> to scan the next one.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- QR Scanner Card (kept for non-fullscreen use & camera picker)   -->
+      <div class="col-lg-6">
+        <div class="card shadow-sm">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <strong>QR Scanner</strong>
+            <div class="d-flex align-items-center gap-2">
+              <select class="form-select form-select-sm qr-camera-select" data-qr-target="cameraSelect"></select>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="d-flex gap-2 mb-2">
+              <button class="btn btn-success" data-action="qr#start">Start scanner</button>
+              <button class="btn btn-outline-secondary" data-action="qr#stop" disabled>Stop</button>
+              <button class="btn btn-outline-primary" data-action="qr#restart">Restart</button>
+              <button class="btn btn-dark ms-auto" data-action="qr#startFullscreen">Fullscreen scan</button>
+            </div>
+
+            <div id="qr-reader" class="border rounded"></div>
+            <div class="mt-2">Scanned: <code data-qr-target="result">—</code></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  <% else %>
+    <div class="alert alert-info">Sign in with Spotify to scan cards and play tracks.</div>
+  <% end %>
 </div>
