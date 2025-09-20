@@ -1,0 +1,119 @@
+// your colors
+$clr-smoothie-a0: #E94560;
+$clr-smoothie-a10: #EF9A48;
+$clr-smoothie-a20: #F7D74A;
+$clr-smoothie-a30: #A3E496;
+$clr-smoothie-a40: #38A3A5;
+
+body {
+    background-color: #0F2D2E; 
+}
+
+/* Every full-screen section is a positioning context */
+.ui-component {
+    position: relative;
+    background-image: linear-gradient(
+        135deg,
+        $clr-smoothie-a0 0%,
+        $clr-smoothie-a10 25%,
+        $clr-smoothie-a20 50%,
+        $clr-smoothie-a30 75%,
+        $clr-smoothie-a40 100%
+    );
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; // optional: nice page-wide effect
+    border-radius: 1rem;
+}
+
+.ui-corner-right-content {
+    position: absolute;
+    top: .75rem;
+    right: .75rem;
+    z-index: $zindex-dropdown; // above content, below modals
+}
+
+.ui-corner-left-content {
+    position: absolute;
+    top: .75rem;
+    left: .75rem;
+    z-index: $zindex-dropdown; // above content, below modals
+}
+
+.close-button {
+    padding: .25rem;
+    cursor: pointer;
+    line-height: 1;
+    color: inherit;
+
+    svg {
+        width: 21px;
+        height: 21px;
+        display: block;
+        fill: currentColor;
+    }
+}
+
+/* The section handles centering + spacing of the scan area */
+.ui-scanner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(12px, 3vw, 32px); // breathing room to edges
+    height: 100%; // fill its parent
+}
+
+/* The scan area itself */
+.qr-frame {
+    width: min(100%, 48rem);  // grow up to ~768px on large screens
+    max-height: 100%;
+    aspect-ratio: 1 / 1;      // square frame feels right for scanning
+    border-radius: 1rem;
+    overflow: hidden;
+    background: #000;         // avoids colored bars while video initializes
+    box-shadow: $box-shadow-lg;
+    border: 0;
+}
+  
+/* Make the library’s video/canvas fill the frame cleanly */
+#qr-reader video,
+#qr-reader canvas {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    display: block;
+}
+  
+/* Remove any default borders the library might add */
+#qr-reader { border: 0 !important; }
+  
+/* Big central icon */
+.control-button {
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    line-height: 1;
+
+    svg {
+        width: 112px;
+        height: 112px;
+        display: block;
+        fill: $gray-700;;
+    }
+}
+
+/* Subtle scan next button styled as link */
+.scan-next-button {
+    background: none;
+    border: 0;
+    color: $gray-600;
+    text-decoration: underline;
+    font-size: .95rem;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: none;
+        color: $gray-700;
+    }
+}

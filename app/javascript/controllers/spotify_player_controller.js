@@ -5,14 +5,12 @@ export default class extends Controller {
   static targets = ["status", "playButton", "pauseButton"]
 
   connect() {
-    console.log("[spotify-player] connected", this.element)
+    console.debug("Spotify Player controller connected")
     this.player = null
     this.deviceId = null
     this.poll = null
-    this._hiddenMeta = null
     this._isPlaying = false
     this._setStatus("Not connected")
-    this.connectPlayer()
   }
 
   disconnect() {
@@ -23,12 +21,12 @@ export default class extends Controller {
   async connectPlayer() { await this._ensurePlayer() }
 
   async play(payload) {
+    console.debug("Spotify Player: play", payload);
     await this._ensurePlayer()
     for (let i = 0; i < 30 && !this.deviceId; i++) { await new Promise(r => setTimeout(r, 100)) }
-
     await this._transferPlaybackHere()
-    const token = await this._fetchAccessToken()
 
+    const token = await this._fetchAccessToken()
     // TODO: remove hardcoded debug track
     payload = 'spotify:track:3n3Ppam7vgaVa1iaRUc9Lp'
     const body =
@@ -46,34 +44,39 @@ export default class extends Controller {
     this._updateButtons()
   }
 
-  async pause()  {
-    if (this.player) { await this.player.pause() }
-    this._isPlaying = false
-    this._updateButtons()
+  async pause()  { 
+    console.debug("Spotify Player: pause");
+    if (this.player) await this.player.pause();  
+    this._isPlaying = false; 
+    this._updateButtons() 
+  }
+  async resume() { 
+    console.debug("Spotify Player: resume");
+    if (this.player) await this.player.resume(); 
+    this._isPlaying = true;  
+    this._updateButtons() 
   }
 
-  async resume() {
-    if (this.player) { await this.player.resume() }
-    this._isPlaying = true
-    this._updateButtons()
+  async stop() {
+    try { await this.pause() } catch(_) {}
+    // Go back to Play Game screen
+    this._dispatch("ui:show-playgame")
   }
 
   async nextAndScan() {
     try { await this.pause() } catch(_) {}
-    this.element.dispatchEvent(new CustomEvent("hitster:scan-next", { bubbles: true }))
+    this._dispatch("hitster:scan-next") // Root has data-action to route this to qr#start
   }
 
-  // -------- internals --------
+  // ---- internals
   async _ensurePlayer() {
-    if (this.player) return;
-
-    if (window.__spotifySDKReady) { await window.__spotifySDKReady }
+    if (this.player) return
+    if (window.__spotifySDKReady) await window.__spotifySDKReady
     if (!window.Spotify || !window.Spotify.Player) throw new Error("Spotify Web Playback SDK not loaded")
 
     await this._fetchAccessToken()
-
     this.player = new window.Spotify.Player({
-      name: "Not-hitster Web Player",
+      name: "Hitster Web Player",
       getOAuthToken: async cb => cb(await this._fetchAccessToken()),
       volume: 0.85
     })
@@ -88,8 +91,6 @@ export default class extends Controller {
     this.player.addListener("initialization_error", ({ message }) => this._setStatus(`Init error: ${message}`))
 
     await this.player.connect()
-
-    // Poll now playing to keep UI in sync
     this.poll = setInterval(() => this._refreshNowPlaying(), 1500)
   }
 
@@ -104,7 +105,7 @@ export default class extends Controller {
     await fetch("https://api.spotify.com/v1/me/player", {
       method: "PUT",
       headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
-      body: JSON.stringify({ device_ids: [this.deviceId], play: true })
+      body: JSON.stringify({ device_ids: [this.deviceId], play: false })
     })
   }
 
@@ -116,40 +117,34 @@ export default class extends Controller {
       })
       if (res.status === 204) return
       const data = await res.json()
-      const item = data?.item
-      if (!item) return
-
-      this._hiddenMeta = {
-        title: item.name,
-        artist: (item.artists || []).map(a => a.name).join(", "),
-        year: (item.album?.release_date || "").slice(0, 4)
-      }
-
       if (typeof data.is_playing === "boolean") {
         this._isPlaying = data.is_playing
         this._updateButtons()
       }
-    } catch (_) {}
+    } catch(_) {}
   }
 
-  async playFromEvent(event) {
+  playFromEvent(event) {
     const { payload } = event.detail || {}
-    if (!payload) return
-    try { await this.play(payload) } catch (e) { console.error("Play failed:", e) }
+    if (payload) this.play(payload).catch(e => console.error("Play failed:", e))
   }
 
   _setStatus(t) { if (this.hasStatusTarget) this.statusTarget.textContent = `Status: ${t}` }
-  
+
   _updateButtons() {
     const show = (el) => { if (el) el.classList.remove("d-none") }
     const hide = (el) => { if (el) el.classList.add("d-none") }
-
-    if (this._isPlaying) {
-      hide(this.playButtonTarget)
-      show(this.pauseButtonTarget)
-    } else {
-      show(this.playButtonTarget)
-      hide(this.pauseButtonTarget)
+    if (this._isPlaying) { 
+      hide(this.playButtonTarget); 
+      show(this.pauseButtonTarget) 
     }
+    else { 
+      show(this.playButtonTarget); 
+      hide(this.pauseButtonTarget) 
+    }
+  }
+
+  _dispatch(name, detail = {}) {
+    this.element.dispatchEvent(new CustomEvent(name, { bubbles: true, detail }))
   }
 }
