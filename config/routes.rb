@@ -13,10 +13,19 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "home#index"
 
+  resources :songs do
+    collection do
+      get :cards
+    end
+  end
+
   get  "/auth/spotify",      to: "spotify_auth#login",    as: :spotify_login
   get  "/spotify/callback",  to: "spotify_auth#callback", as: :spotify_callback
   delete "/logout",          to: "sessions#destroy",      as: :logout
 
   # token endpoint for Web Playback SDK later:
   get "/spotify/token", to: "spotify_auth#token", as: :spotify_token
+
+  # returns the spotify uuid  for the Web Playback SDK later:
+  get "songs/lookup/:qr_token", to: "songs#lookup"
 end

@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Songs</title>
+    <style><%= File.read(Rails.root.join('app/assets/stylesheets/pdf/cards.css')) %></style>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>

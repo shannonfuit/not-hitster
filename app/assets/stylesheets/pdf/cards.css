@@ -1,0 +1,90 @@
+@page { size: A4; margin: 0.75cm; }
+.page { break-after: page; }
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 6.5cm);
+  grid-auto-rows: 6.5cm;
+  gap: 0;
+}
+
+.card {
+  width: 6.5cm; height: 6.5cm;
+  box-sizing: border-box;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+}
+
+.card--front, .card--back {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.card--front:nth-child(5n+1):has(.release-year)  {
+  background-color: #E94560;
+}
+.card--front:nth-child(5n+2):has(.release-year)  {
+  background-color: #EF9A48;
+}
+.card--front:nth-child(5n+3):has(.release-year)  {
+  background-color: #F7D74A;
+}
+.card--front:nth-child(5n+4):has(.release-year) {
+  background-color: #A3E496;
+}
+.card--front:nth-child(5n+5):has(.release-year)  {
+  background-color: #38A3A5;
+}
+
+.card--back:has(.card__qr) {
+background: linear-gradient(
+    135deg,
+    #E94560 0%,
+    #EF9A48 25%,
+    #F7D74A 50%,
+    #A3E496 75%,
+    #38A3A5 100%
+  );
+}
+
+.cards-grid.black-and-white .card {
+  background: white;
+}
+
+.card em,
+.card strong {
+  display: block;
+  font-size: 14pt;
+  text-align: center;
+  margin: 0;
+}
+
+.card .release-year {
+  font-size: 50pt;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  /* padding: 20pt; */
+}
+
+.card__qr {
+  width: 4cm;
+  height: 4cm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: black;
+  border-radius: 50%;
+}
+
+.card__qr svg {
+  background: white;
+  display: block;
+}

@@ -65,7 +65,7 @@ export default class extends Controller {
 
   async nextAndScan() {
     try { await this.pause() } catch(_) {}
-    this._dispatch("hitster:scan-next") // Root has data-action to route this to qr#start
+    this._dispatch("player:scan-next") // Root has data-action to route this to qr#start
   }
 
   // ---- internals
@@ -124,9 +124,38 @@ export default class extends Controller {
     } catch(_) {}
   }
 
-  playFromEvent(event) {
-    const { payload } = event.detail || {}
-    if (payload) this.play(payload).catch(e => console.error("Play failed:", e))
+  // playFromEvent(event) {
+  //   const { payload } = event.detail || {}
+  //   if (payload) this.play(payload).catch(e => console.error("Play failed:", e))
+  // }
+
+  handleQrScan(event) {
+    const qrToken = event.detail.qrToken
+    if (qrToken) {
+      this._scanAndFetchSpotifyUUID(qrToken)
+    } else {
+      console.warn("No qr_token in event detail:", event)
+    }
+  }
+
+  async _scanAndFetchSpotifyUUID(qrToken) {
+    try {
+      const res = await fetch(`/songs/lookup/${encodeURIComponent(qrToken)}`, {
+        headers: { "Accept": "application/json" },
+        credentials: "same-origin"
+      })
+  
+      if (!res.ok) throw new Error("Song lookup failed")
+  
+      const data = await res.json()
+      if (!data.spotify_uuid) throw new Error("No Spotify UUID returned")
+  
+      console.debug("Fetched Spotify UUID:", data.spotify_uuid)
+      this.play(data.spotify_uuid)
+    } catch (error) {
+      console.error("Error fetching Spotify UUID:", error)
+      this._setStatus("Song not found or error")
+    }
   }
 
   _setStatus(t) { if (this.hasStatusTarget) this.statusTarget.textContent = `Status: ${t}` }

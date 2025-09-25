@@ -2,8 +2,8 @@
      data-controller="ui spotify-player qr"
      data-spotify-player-token-url-value="<%= spotify_token_path %>"
      data-action="
-       hitster:play->spotify-player#playFromEvent
-       hitster:scan-next->qr#start
+       qr:scanned->spotify-player#handleQrScan
+       player:scan-next->qr#start
        ui:show-controls->ui#showControls
        ui:show-scanner->ui#showScanner
        ui:show-playgame->ui#showPlayGame

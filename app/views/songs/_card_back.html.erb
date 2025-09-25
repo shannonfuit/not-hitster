@@ -1,0 +1,7 @@
+<div class="card card--back">
+  <% if song %>
+    <div class="card__qr">
+      <%= raw QrCode::Renderer.inline_svg(song.qr_token) %>
+    </div>
+  <% end %>
+</div>

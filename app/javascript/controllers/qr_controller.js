@@ -45,8 +45,8 @@ export default class extends Controller {
     if (!this.isScanning) return
     this.isScanning = false
 
-    const payload = this._parse(decodedText)
-    this._dispatch("hitster:play", { payload })
+    const qrToken = this._parse(decodedText)
+    this._dispatch("qr:scanned", { qrToken: qrToken })
 
     await this.stop()
     this._dispatch("ui:show-controls")
