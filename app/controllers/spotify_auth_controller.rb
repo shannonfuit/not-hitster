@@ -11,20 +11,24 @@ class SpotifyAuthController < ApplicationController
 
   def callback
     if params[:state] != session.delete(:spotify_state)
+      Rails.logger.error("State mismatch in Spotify callback: expected #{session[:spotify_state].inspect}, got #{params[:state].inspect}")
       redirect_to root_path, alert: "State mismatch" and return
     end
     if params[:error].present?
+      Rails.logger.error("Spotify callback error: #{params[:error]}")
       redirect_to root_path, alert: "Spotify error: #{params[:error]}" and return
     end
 
     tokens = Spotify::Oauth.new.exchange_code(params[:code])
     unless tokens&.dig("access_token")
+      Rails.logger.error("Failed to exchange code for tokens: #{tokens.inspect}")
       redirect_to root_path, alert: "Failed to obtain tokens." and return
     end
 
     # get profile
     profile = fetch_profile(tokens["access_token"])
     unless profile&.dig("id")
+      Rails.logger.error("Failed to fetch Spotify profile: #{profile.inspect}")
       redirect_to root_path, alert: "Failed to fetch profile." and return
     end
 

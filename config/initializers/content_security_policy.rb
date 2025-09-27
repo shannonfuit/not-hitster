@@ -3,7 +3,7 @@ Rails.application.configure do
   config.content_security_policy do |policy|
     policy.default_src :self
     policy.script_src  :self, "https://sdk.scdn.co", "https://unpkg.com", "https://cdn.jsdelivr.net"
-    policy.connect_src :self, "https://api.spotify.com"
+    policy.connect_src :self, "https://api.spotify.com", "https://accounts.spotify.com"
     policy.img_src     :self, :data, :blob, "https://i.scdn.co"
     policy.media_src   :self, :blob
     policy.worker_src  :self, :blob
