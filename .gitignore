@@ -36,4 +36,7 @@
 /app/assets/builds/*
 !/app/assets/builds/.keep
 
+# dump of rake songs:dump
+/db/seeds/songs.yml
+
 /node_modules
