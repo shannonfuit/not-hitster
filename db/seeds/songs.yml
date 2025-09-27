@@ -1,0 +1,556 @@
+---
+- artist: Rudimental
+  title: Waiting All Night (feat. Ella Eyre)
+  release_year: 2013
+  spotify_uuid: 6yraFyhgbavO2amB2lhpfi
+  qr_token: YNSTW8S2uvLe9kpLaQkK7YVv
+- artist: Sef
+  title: De Leven
+  release_year: 2011
+  spotify_uuid: 6bO3Bdcna0RoBTIdm5j3Wm
+  qr_token: JW9eddwPvKHDcYeDwwZvxTBd
+- artist: Fresku
+  title: Nieuwe Dag
+  release_year: 2010
+  spotify_uuid: 7gq3uwW3kjZFupbrOtLvxQ
+  qr_token: hoSyQov1UiDoGNVFY4RgRVqL
+- artist: John Legend
+  title: Save Room
+  release_year: 2006
+  spotify_uuid: 3sTc75CCyIw4FPs6cXkOe7
+  qr_token: NNYwKdLooScrumfGFaKKY3uu
+- artist: Typhoon
+  title: Surfen
+  release_year: 2014
+  spotify_uuid: 2GEKAhY3g7aRlpidLrqe6W
+  qr_token: fSwVQhAUi4W3v27XAknZbFGk
+- artist: Underworld
+  title: Born Slippy (Nuxx)
+  release_year: 2014
+  spotify_uuid: 7xQYVjs4wZNdCwO0EeAWMC
+  qr_token: bPk4GiyftBLDeZPAGLcKG3MB
+- artist: BBE
+  title: Seven Days and One Week - Radio Edit
+  release_year: 1996
+  spotify_uuid: 47BPp5TPDpl0wCXB0FWXvg
+  qr_token: ELRcBYMPvCreAwN8VCu8p2Mp
+- artist: DJ Jean
+  title: Love Come Home - Radio Mix
+  release_year: 2000
+  spotify_uuid: 7AWKKmsFwfFgy28Ulvb7Xi
+  qr_token: zNRAYfHNUU4mEcwBjCTtwxeZ
+- artist: The Sunclub
+  title: Fiesta
+  release_year: 2011
+  spotify_uuid: 5VUwnAnptSLf4fJLp10r7o
+  qr_token: Dbv8T2TtDa6mPsA6j3CQtb5w
+- artist: Diggy Dex
+  title: Slaap lekker (Fantastig toch)
+  release_year: 2010
+  spotify_uuid: 6YDjRUxFa8ECWukc3EoyIL
+  qr_token: UGkFbtppvo8QUgm6gZm44Vmz
+- artist: Moby
+  title: Natural Blues
+  release_year: 1999
+  spotify_uuid: 0NNCkIadCP6VnV7LeGL1zx
+  qr_token: imrmJXAGXs9V2ZqLkmr746KV
+- artist: Tame Impala
+  title: Borderline
+  release_year: 2020
+  spotify_uuid: 5hM5arv9KDbCHS0k9uqwjr
+  qr_token: h5fxFHHNMUboMKVDkZ5bsT3C
+- artist: The Chemical Brothers
+  title: Galvanize
+  release_year: 2005
+  spotify_uuid: 4bz7uB4edifWKJXSDxwHcs
+  qr_token: tP4115kXvfM5R3KDmUznXT9o
+- artist: The Last Shadow Puppets
+  title: Miracle Aligner
+  release_year: 2016
+  spotify_uuid: 4iwpCp7qdDLngGI3gsVTza
+  qr_token: u7w8PJPrUfAYMmuBRXXT84fh
+- artist: De Jeugd Van Tegenwoordig
+  title: Sterrenstof
+  release_year: 2010
+  spotify_uuid: 7D5vAulNfrQV6xEwzgH0OF
+  qr_token: x7xCfJkkPPUdejB27gPcSX3C
+- artist: Queens of the Stone Age
+  title: No One Knows
+  release_year: 2002
+  spotify_uuid: 6y20BV5L33R8YXM0YuI38N
+  qr_token: aWEmryZnFUVbCtg5u8kTVzqh
+- artist: Radiohead
+  title: Karma Police
+  release_year: 1997
+  spotify_uuid: 63OQupATfueTdZMWTxW03A
+  qr_token: DRhbh6ePEj2oGoMdzx2ahjCW
+- artist: The Black Keys
+  title: Lonely Boy
+  release_year: 2011
+  spotify_uuid: 3dOAXUx7I1qnzWzxdnsyB8
+  qr_token: 3hiQt1th1tfnptk5EfAoNDXR
+- artist: Paolo Nutini
+  title: New Shoes
+  release_year: 2007
+  spotify_uuid: 7lMxARzuKT8pWDoGqa6VEU
+  qr_token: rtCcg4Kdgt7cVDzSJsuyHQwf
+- artist: Red Hot Chili Peppers
+  title: Dani California
+  release_year: 2006
+  spotify_uuid: 10Nmj3JCNoMeBQ87uw5j8k
+  qr_token: EzSmhxBY165xXLVv8FYeQ87k
+- artist: Arcade Fire
+  title: The Suburbs
+  release_year: 2010
+  spotify_uuid: 5iItYl3Q6wCnKVfpK1uNVf
+  qr_token: mMi2z8FHX67KXDzznctC3WBw
+- artist: The Kooks
+  title: Naive
+  release_year: 2006
+  spotify_uuid: 7BHPGtpuuWWsvE7cCaMuEU
+  qr_token: m9VMG3owXyTQ3srmDcnbb8Hk
+- artist: Gorillaz
+  title: Clint Eastwood
+  release_year: 2001
+  spotify_uuid: 1RKUoGiLEbcXN4GY4spQDx
+  qr_token: C2yTUGirfm59MA8KVqAbeaXJ
+- artist: John Mayer
+  title: Gravity
+  release_year: 2006
+  spotify_uuid: 3SktMqZmo3M9zbB7oKMIF7
+  qr_token: ww6f2tQs1yasCqo9FhVpsaKi
+- artist: Bloodhound Gang
+  title: The Bad Touch
+  release_year: 1999
+  spotify_uuid: 5EYdTPdJD74r9EVZBztqGG
+  qr_token: SjSAVwP3Ldz3vxBtbazGxvKV
+- artist: De Staat
+  title: Sweatshop
+  release_year: 2011
+  spotify_uuid: 04AiiaeqeYg0LcpJpRAkNx
+  qr_token: Tcq4M76eFVTxiy99jAKNNuzw
+- artist: Tyler, The Creator
+  title: EARFQUAKE
+  release_year: 2019
+  spotify_uuid: 5hVghJ4KaYES3BFUATCYn0
+  qr_token: fDeBRuta1J16yao2tYZnPfz1
+- artist: Anunaku
+  title: Bronze Age
+  release_year: 2019
+  spotify_uuid: 5Fl01wsuaXCIaNoCUCKbKz
+  qr_token: pgWaDax9Jw8Gq5i9PTCsFeBy
+- artist: Gotu Jim
+  title: Afterparty
+  release_year: 2025
+  spotify_uuid: 0nvPj2VhAABt6Ac467PEL3
+  qr_token: VQmHhBrdXL3EFFJPhjKa3s1C
+- artist: Bomfunk MC's
+  title: Freestyler
+  release_year: 1999
+  spotify_uuid: 4eZO97RGFo7IN6gm24Nv0S
+  qr_token: P2oNTgLYB1mCHvbSscfP6DCb
+- artist: Yung Internet
+  title: Ik Zag Je
+  release_year: 2016
+  spotify_uuid: 5yXJYP6OJpK0ICmwO0O45z
+  qr_token: cmNanXv9bkkXhiG4zDo3sUdM
+- artist: Swedish House Mafia
+  title: One
+  release_year: 2010
+  spotify_uuid: 45v72KSt2Ay4xKIeJRBD5p
+  qr_token: Sgj793TcZzJ8HAaNqAdfBLP6
+- artist: K-Liber
+  title: Viben
+  release_year: 2004
+  spotify_uuid: 7wxqjTEvxVOsQEDJn2kB3Y
+  qr_token: buy1TCTSrWnBgik5KDSyz29g
+- artist: The Partysquad
+  title: Helemaal Naar De Klote
+  release_year: 2013
+  spotify_uuid: 0zPgUexj5ozxUR6nDSqpvU
+  qr_token: dPWC4dB53kvdNguD3B519JWY
+- artist: Faithless
+  title: Insomnia
+  release_year: 1996
+  spotify_uuid: 5z5wYWL1IO6y2yEFBOiGt0
+  qr_token: xo6bhSbyJ9D95UUZdLUnEiks
+- artist: Brainpower
+  title: Dansplaat
+  release_year: 2002
+  spotify_uuid: 4y0yr2ZfZARAYfG5uhQXYY
+  qr_token: nb3SvSivCHrGcouMdeEeXhZ2
+- artist: Wildstylez
+  title: Year Of Summer
+  release_year: 2012
+  spotify_uuid: 3iKcDwqwMf6O547uQcyjaO
+  qr_token: LfkZtNc13dVCbK9REK4Wh5Qv
+- artist: Brainpower
+  title: Als Niet Als
+  release_year: 2000
+  spotify_uuid: 5VYjCGAg8XYJbwKngOXwFA
+  qr_token: syxigaDpZygDNQpcbUx2u48u
+- artist: Gigi D'Agostino
+  title: Bla Bla Bla
+  release_year: 1999
+  spotify_uuid: 04zrPERrSO4CfyargthKJ9
+  qr_token: WSQapHn4AJmym3v8fWfpeLyE
+- artist: La Bouche
+  title: Be My Lover
+  release_year: 1995
+  spotify_uuid: 3YB6nCSuFqNiqOvPtAPK9X
+  qr_token: yPczJqK9mJ33GeJTkgnB5sGH
+- artist: 20 Fingers
+  title: Lick It - 20 Finger Club Mix
+  release_year: 1996
+  spotify_uuid: 0zhXL7ifjAVuDEs0xiXriP
+  qr_token: yZ8ZDGFwRNNkBGE7oHspzYyh
+- artist: Sidney Samson
+  title: Riverside
+  release_year: 2009
+  spotify_uuid: 6FZQH0HlMULVggaqjyQBqT
+  qr_token: vynvAkUXMwnexunGfJaXsDpr
+- artist: Ann Lee
+  title: 2 Times - Original
+  release_year: 1998
+  spotify_uuid: 4IiKITgHYaHrF1zUlcTyVH
+  qr_token: gxENzZr8emXRNN6W4kxMmR5m
+- artist: Ali B
+  title: Rampeneren
+  release_year: 2006
+  spotify_uuid: 6t2BM5Thoh9b2H9PnbEVKI
+  qr_token: Bnqj5yawwns737FtUbKqDVns
+- artist: Kylie Minogue
+  title: Can't Get You out of My Head
+  release_year: 2001
+  spotify_uuid: 3E7ZwUMJFqpsDOJzEkBrQ7
+  qr_token: R1PX1WRzvHCesiBHkYdmJKwy
+- artist: Skrillex
+  title: Bangarang (feat. Sirah)
+  release_year: 2011
+  spotify_uuid: 6VRhkROS2SZHGlp0pxndbJ
+  qr_token: VdYAErecaaRkUMwH4Ksu23Kr
+- artist: Skrillex
+  title: Supersonic (My Existence) [with Noisia, josh pan & Dylan Brady]
+  release_year: 2021
+  spotify_uuid: 7gCuKTyBb5nurNalzs0Hvp
+  qr_token: GcJvo9JbZwLjcKuRpXppE9YV
+- artist: Noisia
+  title: Tommy's Theme - Original
+  release_year: 2012
+  spotify_uuid: 2Atzk0W2RHeZw2oIiaBubK
+  qr_token: ZDpu6rnKAhRFDvR6khw5DuTo
+- artist: The Prodigy
+  title: Smack My Bitch Up
+  release_year: 1997
+  spotify_uuid: 48vDCZIRmrFO33fH4QU4ij
+  qr_token: nfQhfxAkQpecFSEzbB8AMQyF
+- artist: Wax
+  title: Rosana
+  release_year: 2013
+  spotify_uuid: 00n24Sf2vxgmCT4p8oPLYf
+  qr_token: e3jBYhZzt5meTZJhoQiwQbkL
+- artist: Michael Kiwanuka
+  title: Home Again
+  release_year: 2012
+  spotify_uuid: 5yGVHzJ2Se8pDzR7FIYUlU
+  qr_token: 7UhXfAkXBXL8HEKETAFmGym5
+- artist: Mr. Oizo
+  title: Flat Beat
+  release_year: 1999
+  spotify_uuid: 7GP1ZmPGH1puBliT9S6Fi5
+  qr_token: 7fdvJhoKLAiekqFP2qWinjNS
+- artist: Marie Davidson
+  title: Work It - Soulwax Remix
+  release_year: 2019
+  spotify_uuid: 6WfL1pwMyFf3IvFWLnre4P
+  qr_token: LWjz4iiFi5qvEKNhRh8CCrxb
+- artist: Audio Bullys
+  title: We Don't Care
+  release_year: 2003
+  spotify_uuid: 7LYBHDTyhBbL1KPf5gTSM2
+  qr_token: yDakXsWwsCA9ehC2TB87H2oC
+- artist: Fatboy Slim
+  title: Praise You
+  release_year: 1998
+  spotify_uuid: 1FS21kclHQ2vVi3U1ZxETc
+  qr_token: mpKHuKqJsmkX3m5htEvw5jZd
+- artist: Hustle Athletics
+  title: Lekker
+  release_year: 2006
+  spotify_uuid: 34jKs59pGhynoUDsxlVJ8H
+  qr_token: 5NedAjahHnBpSs857rLj2Q6j
+- artist: Jungle by Night
+  title: Stormvogel
+  release_year: 2018
+  spotify_uuid: 6exr83cAsgSCbCYziWo2l3
+  qr_token: r8GTJr4NNJqf4AFsvVUDcM2s
+- artist: Rebūke
+  title: Along Came Polly - Original Mix
+  release_year: 2018
+  spotify_uuid: 4cTIFTmacy3vyi5A5F3YeD
+  qr_token: us8SqppnmWyQsRbS2hBoDQPe
+- artist: Le Le
+  title: Luxe Benen
+  release_year: 2025
+  spotify_uuid: 6QAEN3MhkZxTx7Ak8JEaps
+  qr_token: drKYkAaEa6WDasWPXxKtqqsF
+- artist: Shouse
+  title: Love Tonight
+  release_year: 2017
+  spotify_uuid: 1u73tmG4xQschbK8cXxSD9
+  qr_token: 2nWYXTs827K1JBtbeJXXupY4
+- artist: Tame Impala
+  title: The Less I Know The Better
+  release_year: 2015
+  spotify_uuid: 6K4t31amVTZDgR3sKmwUJJ
+  qr_token: kGo9NoNNUuw5GnWZ5mQhTHXJ
+- artist: De Staat
+  title: Witch Doctor
+  release_year: 2013
+  spotify_uuid: 3rSYcaSCxkKU4SpEVXQgFe
+  qr_token: Q7kVmcEdpjaByzVLNeC3E7wA
+- artist: FISHER
+  title: Losing It
+  release_year: 2018
+  spotify_uuid: 6ho0GyrWZN3mhi9zVRW7xi
+  qr_token: EEY5azDfUSGkYfLA4nxj83ys
+- artist: Yaeji
+  title: raingurl
+  release_year: 2017
+  spotify_uuid: 4gRAniZdYF2zVrDUsNC9tU
+  qr_token: rgLEPqNbXjfCeGTi6jwz9a9e
+- artist: Paul Kalkbrenner
+  title: Sky and Sand
+  release_year: 2013
+  spotify_uuid: 3ZSqMer9RLSglvi18bWXYV
+  qr_token: ApTncEQbdTSqeY6d7N7cgnDA
+- artist: Paul Kalkbrenner
+  title: Feed Your Head
+  release_year: 2015
+  spotify_uuid: 7pgFHs8K5OgB9PGDY3sysE
+  qr_token: 95R2fswbrb9qJysVdF3wNvXq
+- artist: Masego
+  title: Navajo
+  release_year: 2017
+  spotify_uuid: 6zWU7YALeEDMcPGhKKZJhV
+  qr_token: tt3B7Ayrxrfp6iJbFjvugYhM
+- artist: Elias Mazian
+  title: Hopen
+  release_year: 2023
+  spotify_uuid: 2EamTgUclXcAg8PJws6hSD
+  qr_token: dQkNzkuGwZoWHkdxb6Bbvyye
+- artist: Effy
+  title: iluv
+  release_year: 2024
+  spotify_uuid: 4u0N8a9adNalT4XdihjeSr
+  qr_token: ogbdAnhxYXbaZuQf4hNXUJDe
+- artist: Dillinja
+  title: I Wanna Know
+  release_year: 2001
+  spotify_uuid: 1poVgpW71pmLcMq5TzPzXE
+  qr_token: cduvjroWt7qANJMC4n4yrSS5
+- artist: Dimmish
+  title: Yoshi
+  release_year: 2023
+  spotify_uuid: 6J2jHPxeD7IgX6LElCMvK1
+  qr_token: UGVdvNyYqnEzkGirt7h3Lq9D
+- artist: Some Guest
+  title: Materialist
+  release_year: 2022
+  spotify_uuid: 2xNepGVhvT7TIrh37OH9Ug
+  qr_token: 3xTQAf69ReUp1D7ViScYwJen
+- artist: KI/KI
+  title: 5 Mins Of Acid
+  release_year: 2024
+  spotify_uuid: 6NLvW45mqeoctfNA2YmPMr
+  qr_token: mZDfZ418NfSWCJuEecte6kVb
+- artist: KI/KI
+  title: Losing Control
+  release_year: 2025
+  spotify_uuid: 3gJ16QEGGhLFPNLvbXgB1u
+  qr_token: es5vX4532GkP4r9Jfm4Hhagq
+- artist: KETTAMA
+  title: Yosemite
+  release_year: 2024
+  spotify_uuid: 2bsE8sHNGxofmecroJrxsT
+  qr_token: CYoJM38ut9C3WrAD7zbex6YU
+- artist: Fred again..
+  title: Victory Lap
+  release_year: 2025
+  spotify_uuid: 1lbNgoJ5iMrMluCyhI4OQP
+  qr_token: nw6HH9j9P11fSecXMvx9qvfk
+- artist: Zanger Rinus
+  title: Met Romana op de scooter
+  release_year: 2011
+  spotify_uuid: 1Ki2y0BRL1TbKeUujtGSeP
+  qr_token: WF9jQteySeos3t7Yusy7HncA
+- artist: Kink
+  title: Time to Change
+  release_year: 2024
+  spotify_uuid: 1iUjlRzvpSc7pMv9AQOJb3
+  qr_token: idUcQMRkFWy6J47qtwBVJfjm
+- artist: Overmono
+  title: So U Kno
+  release_year: 2023
+  spotify_uuid: 1YGxSgWIWqxKuLLocPVxhC
+  qr_token: RoePBEW1LiLmRuBtXosDGsfZ
+- artist: Jack Parow
+  title: Cooler As Ekke
+  release_year: 2010
+  spotify_uuid: 4qXMsnYJ0KfLPPgvLIjagK
+  qr_token: enavkoxPnTk3dJwNEMJseKdw
+- artist: Joy Orbison
+  title: flight fm
+  release_year: 2024
+  spotify_uuid: 4Wrd7TpAgRmlUtcbpJCW3T
+  qr_token: fKcoj8fV4qxTXovNAFhAuzQB
+- artist: Faberyayo
+  title: Uniform
+  release_year: 2010
+  spotify_uuid: 1qWZzHX6YbaddpPRlWUMI9
+  qr_token: nzww5eb9vfuUXKpoALwrdyY9
+- artist: BICEP
+  title: Glue
+  release_year: 2017
+  spotify_uuid: 2aJDlirz6v2a4HREki98cP
+  qr_token: A8665Q1WYwoTmvqov43hM1hb
+- artist: Sef
+  title: Diamanten
+  release_year: 2011
+  spotify_uuid: 0NKobadMB0hxD7mz6oCcrF
+  qr_token: gXMAvSbL2SHt5FwSH58UjvaG
+- artist: Luke Hovey
+  title: WHISTLE TOOL
+  release_year: 2024
+  spotify_uuid: 0cFtnEsoorifLEDjrDZVRb
+  qr_token: 3PAfxxnCePQM7no1M55nqkwD
+- artist: Major Lazer
+  title: Bubble Butt (feat. Bruno Mars, Tyga & Mystic)
+  release_year: 2013
+  spotify_uuid: 2KN5b8Fj5KLtW1Wyo7tvwp
+  qr_token: XyTDz1teiWXGit2AKna7S9rX
+- artist: Goldband
+  title: Mijn Stad
+  release_year: 2020
+  spotify_uuid: 4fcFagaDBJj70wnzeBXOGG
+  qr_token: y3D1WLKBugFNE5XHjeu5eUe3
+- artist: Arctic Monkeys
+  title: Four Out Of Five
+  release_year: 2018
+  spotify_uuid: 5Z5nbOXhsSbySVC7WUc6y9
+  qr_token: X2eauLkNmXUT8LRZRscCK8Av
+- artist: The xx
+  title: Intro
+  release_year: 2009
+  spotify_uuid: 2usrT8QIbIk9y0NEtQwS4j
+  qr_token: C8kPMmTdBNGewG8yVbjy7Typ
+- artist: New Order
+  title: Blue Monday
+  release_year: 1987
+  spotify_uuid: 6hHc7Pks7wtBIW8Z6A0iFq
+  qr_token: uSPD3c6jg57478pa35t8nve5
+- artist: Freestylers
+  title: Push Up
+  release_year: 2004
+  spotify_uuid: 2PJq8Fr5i2S0OkcmFsTC1P
+  qr_token: qb2NJnsot3cAfuVMHVxUvgv2
+- artist: Bodyrox
+  title: Yeah Yeah - D Ramirez Vocal Radio Edit
+  release_year: 2006
+  spotify_uuid: 4HVGC52IogHANcKFA0QYiT
+  qr_token: uCfa6xA8vQqUgc48k5PeEiwf
+- artist: Rob De Nijs
+  title: Banger Hart
+  release_year: 1996
+  spotify_uuid: 2z5SRhPD2NHotguZ6xL5ad
+  qr_token: 7sp2JUnmMz5CVcirueERUgc8
+- artist: Counting Crows
+  title: Holiday In Spain
+  release_year: 2012
+  spotify_uuid: 5OaQpcK7S28EitZlVQbWBQ
+  qr_token: SynBsCeZnmvTU89M9pkRXbpH
+- artist: Daft Punk
+  title: Da Funk
+  release_year: 1997
+  spotify_uuid: 0MyY4WcN7DIfbSmp5yej5z
+  qr_token: MDVh4mznJ5aBCN2JQe6S6mWK
+- artist: Confidence Man
+  title: Don't You Know I'm In a Band
+  release_year: 2018
+  spotify_uuid: 5AnDn91YRZMCIJJMWl99yD
+  qr_token: Ajb4Nc6oV22sAYjL9XjcqHkc
+- artist: The Prodigy
+  title: Out of Space
+  release_year: 1992
+  spotify_uuid: 37m2khXl5lnBzicq1mGoZG
+  qr_token: ekKzFTD6xa8MxnoCAhoh4FhN
+- artist: The Stranglers
+  title: Golden Brown
+  release_year: 1981
+  spotify_uuid: 2AX5E86cn9n2dgioZEjirI
+  qr_token: gw5gNwhwy9Jy9XT7Jpd23oMt
+- artist: Kate Ryan
+  title: Désenchantée
+  release_year: 2002
+  spotify_uuid: 4yOU9FaCmFFo2qfy1FHIe3
+  qr_token: DRjTkVZcwBH5LGoANk2thK3C
+- artist: Caesars
+  title: Jerk It Out
+  release_year: 2005
+  spotify_uuid: 1bx7OUl2UmAnA5oZkm9If7
+  qr_token: k79TRfJqrbFQ7DiUqa7Nj63m
+- artist: The Cardigans
+  title: My Favourite Game
+  release_year: 1998
+  spotify_uuid: 0Ui05Ov0s4PnRc4JI3Pilg
+  qr_token: yzwJXA9pyr9CAeHMXQCEY8fG
+- artist: Jennifer Lopez
+  title: Waiting for Tonight
+  release_year: 1999
+  spotify_uuid: 5yaCquc7koPqtgj7v0lwHX
+  qr_token: nDBQARyaur2dCrFHVtDir6nE
+- artist: 'Yes'
+  title: Owner of a Lonely Heart
+  release_year: 1983
+  spotify_uuid: 0GTK6TesV108Jj5D3MHsYb
+  qr_token: MYdQt1dtYW2xURQxneanXmdF
+- artist: Arctic Monkeys
+  title: I Bet You Look Good On The Dancefloor
+  release_year: 2006
+  spotify_uuid: 3DQVgcqaP3iSMbaKsd57l5
+  qr_token: hmEjhNprwg7jhc9yin9AcJYo
+- artist: Yeah Yeah Yeahs
+  title: Maps
+  release_year: 2003
+  spotify_uuid: 5ypaZzzhcVYoy8BYSkbfih
+  qr_token: TNYCyEgeqQPHkscV1nBV1qgJ
+- artist: Yeah Yeah Yeahs
+  title: Heads Will Roll
+  release_year: 2009
+  spotify_uuid: 7vB0ActOFfEECGvTklSHnJ
+  qr_token: mvE6j8FEoDidGJsPzsWGJawM
+- artist: Typhoon
+  title: Zo Niet Mij
+  release_year: 2007
+  spotify_uuid: 1DBD195x8LLB7STOI5cX1S
+  qr_token: WXY9G1c5bmWvJESwiGUDwa87
+- artist: Vieze Asbak
+  title: Vieze Baap
+  release_year: 2022
+  spotify_uuid: 749lZHFZexwWvwYLh0dYpa
+  qr_token: B7Q9xdwN4fSHN3oND7aRBenM
+- artist: Gigi D'Agostino
+  title: La Passion Medley With Rectangle - Tanzen Vision
+  release_year: 2009
+  spotify_uuid: 4zGevRAcWRZjnZ3FnU56UP
+  qr_token: Hwn3MADB1UG9yDJZUKMjUsJB
+- artist: Oasis
+  title: Wonderwall - Remastered
+  release_year: 1995
+  spotify_uuid: 7ygpwy2qP3NbrxVkHvUhXY
+  qr_token: EswEsxFcF1umYsqmM6xm9qZM
+- artist: M.I.A.
+  title: Paper Planes
+  release_year: 2007
+  spotify_uuid: 1ixbwbeBi5ufN4noUKmW5a
+  qr_token: WWxeZbnz8gCrTJFh99bZyU9e
