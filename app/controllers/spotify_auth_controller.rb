@@ -42,6 +42,7 @@ class SpotifyAuthController < ApplicationController
   end
 
   # For the Web Playback SDK later
+  # # TODO, DRY up, refactor to use TokenProvider service
   def token
     user = current_user
     return render(json: { error: "not_authenticated" }, status: :unauthorized) unless user
