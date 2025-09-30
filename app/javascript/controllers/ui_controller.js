@@ -4,11 +4,8 @@ export default class extends Controller {
   static targets = ["signIn", "playGame", "scanner", "controls"]
 
   connect() {
-    // Initial state: if signIn exists, show it. Else show Play Game.
     console.debug("UI controller connected")
-
-    if (this.hasSignInTarget) this._only(this.signInTarget)
-    else if (this.hasPlayGameTarget) this._only(this.playGameTarget)
+    if (this.hasPlayGameTarget) this._only(this.playGameTarget)
   }
 
   // Called by the Play game button
@@ -20,17 +17,14 @@ export default class extends Controller {
   showScanner()  { if (this.hasScannerTarget)  this._only(this.scannerTarget) }
   showControls() { if (this.hasControlsTarget) this._only(this.controlsTarget) }
   showPlayGame() { if (this.hasPlayGameTarget) this._only(this.playGameTarget) }
-  showSignIn()   { if (this.hasSignInTarget)   this._only(this.signInTarget) }
 
   _only(targetEl) {
     const groups = [
-      this.hasSignInTarget && this.signInTarget,
       this.hasPlayGameTarget && this.playGameTarget,
       this.hasScannerTarget && this.scannerTarget,
       this.hasControlsTarget && this.controlsTarget,
     ].filter(Boolean)
 
-    // apply also hidden and inert
     groups.forEach(el => el.classList.add("d-none"))
     targetEl.classList.remove("d-none")
   }

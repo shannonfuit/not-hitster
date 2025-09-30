@@ -19,9 +19,11 @@ Rails.application.routes.draw do
     end
   end
 
-  get  "/auth/spotify",      to: "spotify_auth#login",    as: :spotify_login
-  get  "/spotify/callback",  to: "spotify_auth#callback", as: :spotify_callback
-  delete "/logout",          to: "sessions#destroy",      as: :logout
+  get     "/auth/spotify",       to: "spotify_auth#login",      as: :spotify_login
+  get     "/spotify/callback",   to: "spotify_auth#callback",   as: :spotify_callback
+  delete  "/spotify/disconnect", to: "spotify_auth#disconnect", as: :spotify_disconnect
+  get     "/sign_in",            to: "sessions#new",            as: :sign_in
+  delete  "/logout",             to: "sessions#destroy",        as: :logout
 
   # token endpoint for Web Playback SDK later:
   get "/spotify/token", to: "spotify_auth#token", as: :spotify_token

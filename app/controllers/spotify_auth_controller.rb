@@ -10,6 +10,7 @@ class SpotifyAuthController < ApplicationController
   end
 
   def callback
+    # TODO: test logging, and fix the bug with session[:spotify_state] being nil
     if params[:state] != session.delete(:spotify_state)
       Rails.logger.error("State mismatch in Spotify callback: expected #{session[:spotify_state].inspect}, got #{params[:state].inspect}")
       redirect_to root_path, alert: "State mismatch" and return
@@ -25,7 +26,6 @@ class SpotifyAuthController < ApplicationController
       redirect_to root_path, alert: "Failed to obtain tokens." and return
     end
 
-    # get profile
     profile = fetch_profile(tokens["access_token"])
     unless profile&.dig("id")
       Rails.logger.error("Failed to fetch Spotify profile: #{profile.inspect}")
@@ -41,6 +41,7 @@ class SpotifyAuthController < ApplicationController
     user.token_expires_at = Time.current + tokens["expires_in"].to_i.seconds
     user.save!
 
+    reset_session
     session[:user_id] = user.id
     redirect_to root_path, notice: "Signed in with Spotify!"
   end
@@ -64,6 +65,20 @@ class SpotifyAuthController < ApplicationController
 
     expires_in = (user.token_expires_at - Time.current).to_i
     render json: { access_token: user.access_token, expires_in: expires_in.positive? ? expires_in : 0 }
+  end
+
+  # TODO: Add test and button in UI
+  def disconnect
+    if current_user
+      current_user.update(
+        access_token:     nil,
+        refresh_token:    nil,
+        token_expires_at: nil
+      )
+      redirect_to root_path, notice: "Disconnected from Spotify."
+    else
+      redirect_to root_path, alert: "Not signed in."
+    end
   end
 
   private

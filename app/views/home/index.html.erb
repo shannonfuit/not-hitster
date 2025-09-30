@@ -1,4 +1,4 @@
-<main class="container-md min-vh-100 d-flex flex-column py-4"
+<main class="container-md min-vh-100 d-flex flex-column align-items-center py-4"
      data-controller="ui spotify-player qr"
      data-spotify-player-token-url-value="<%= spotify_token_path %>"
      data-action="
@@ -9,90 +9,88 @@
        ui:show-playgame->ui#showPlayGame
      ">
 
-  <% unless user_signed_in? %>
-    <!-- 1) SIGN IN -->
-    <section data-ui-target="signIn"
-             class="ui-component flex-fill d-flex flex-column align-items-center justify-content-evenly text-center">
-      <h1 class="display-1 fw-bold mb-4">Hitster</h1>
-      <%= link_to "Sign in with Spotify", spotify_login_path, class: "btn btn-success btn-lg" %>
-    </section>
-
-  <% else %>
-    <!-- 2) PLAY GAME -->
-    <section data-ui-target="playGame"
-            class="ui-component flex-fill d-flex flex-column align-items-center justify-content-evenly text-center">
-      <%= button_to "Sign out",
-                    logout_path,
-                    method: :delete,
-                    class: "btn btn-outline-secondary btn-sm",
-                    form: { class: "ui-corner-right-content" },
-                    aria: { label: "Sign out" } %>
-
-      <h1 class="display-1 fw-bold mb-4">Hitster</h1>
-      <button
-        type="button"
-        class="btn btn-success btn-lg px-4 py-3 fs-3"
-        data-action="pointerup->ui#startGame pointerup->spotify-player#connectPlayer pointerup->qr#start">
-        Play game
-      </button>
-    </section>
-
-    <!-- 3) SCANNER -->
-    <section data-ui-target="scanner" class="ui-component flex-fill d-none ui-scanner">
-      <div id="qr-reader" class="qr-frame"></div>
-
-      <button type="button"
-              class="close-button ui-corner-right-content btn btn-outline-secondary btn-sm" 
-              aria-label="Stop" title="Stop" 
-              data-action="pointerup->spotify-player#stop">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M18.3 5.7a1 1 0 0 0-1.4 0L12 10.6 7.1 5.7a1 1 0 1 0-1.4 1.4L10.6 12l-4.9 4.9a1 1 0 1 0 1.4 1.4L12 13.4l4.9 4.9a1 1 0 0 0 1.4-1.4L13.4 12l4.9-4.9a1 1 0 0 0 0-1.4z"/>
-        </svg>
-      </button>
-    </section>
-
-    <!-- 4) CONTROLS -->
-    <section data-ui-target="controls" class="ui-component flex-fill d-flex flex-column align-items-center justify-content-evenly text-center">
-      <p class="small text-muted m-0 ui-corner-left-content"
-          role="status" aria-live="polite" 
-          data-spotify-player-target="status">
-          Status: Not connected
+  <!-- 2) PLAY GAME -->
+  <section data-ui-target="playGame"
+           class="ui-component flex-fill d-flex flex-column align-items-center justify-content-evenly text-center">
+    <section>
+      <h1 class="title gradient-underline display-0  mb-4">Bart's Hits</h1>
+      <p class="welcome-message">
+        Gefeliciteerd met je 30e verjaardag!
       </p>
-      
-      <button type="button"
-              class="control-button d-none"
-              data-spotify-player-target="playButton"
-              data-action="pointerup->spotify-player#resume"
-              aria-label="Play" title="Play">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M8 5v14l11-7z"/>
-        </svg>
-      </button>
-
-      <button type="button"
-              class="control-button d-none"
-              data-spotify-player-target="pauseButton"
-              data-action="pointerup->spotify-player#pause"
-              aria-label="Pause" title="Pause">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7 5h4v14H7zM13 5h4v14h-4z"/>
-        </svg>
-      </button>
-
-      <button type="button"
-              class="scan-next-button mt-3" 
-              data-action="pointerup->spotify-player#nextAndScan">
-        Scan next
-      </button>
-
-      <button type="button" 
-              class="close-button ui-corner-right-content btn btn-outline-secondary btn-sm" 
-              aria-label="Stop" title="Stop" 
-              data-action="pointerup->spotify-player#stop">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M18.3 5.7a1 1 0 0 0-1.4 0L12 10.6 7.1 5.7a1 1 0 1 0-1.4 1.4L10.6 12l-4.9 4.9a1 1 0 1 0 1.4 1.4L12 13.4l4.9 4.9a1 1 0 0 0 1.4-1.4L13.4 12l4.9-4.9a1 1 0 0 0 0-1.4z"/>
-        </svg>
-      </button>
     </section>
-  <% end %>
+    
+    
+    <button
+      type="button"
+      class="btn btn-success"
+      data-action="pointerup->ui#startGame pointerup->spotify-player#connectPlayer pointerup->qr#start">
+      Play game
+    </button>
+
+    <%= button_to "Sign out",
+                  logout_path,
+                  method: :delete,
+                  class: "btn btn-outline-secondary btn-sm",
+                  form: { class: "ui-corner-right-content" },
+                  aria: { label: "Sign out" } %>
+  </section>
+
+  <!-- 3) SCANNER -->
+  <section data-ui-target="scanner" class="ui-component flex-fill d-flex flex-column align-items-center justify-content-evenly d-none ui-scanner">
+    <h1 class="title gradient-underline display-4  mb-4">Bart's Hits</h1>
+    <div id="qr-reader" class="qr-frame"></div>
+
+    <button type="button"
+            class="close-button ui-corner-right-content btn btn-outline-secondary btn-sm" 
+            aria-label="Stop" title="Stop" 
+            data-action="pointerup->spotify-player#stop">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M18.3 5.7a1 1 0 0 0-1.4 0L12 10.6 7.1 5.7a1 1 0 1 0-1.4 1.4L10.6 12l-4.9 4.9a1 1 0 1 0 1.4 1.4L12 13.4l4.9 4.9a1 1 0 0 0 1.4-1.4L13.4 12l4.9-4.9a1 1 0 0 0 0-1.4z"/>
+      </svg>
+    </button>
+  </section>
+
+  <!-- 4) CONTROLS -->
+  <section data-ui-target="controls" class="ui-component flex-fill d-flex flex-column align-items-center justify-content-evenly text-center">
+    <p class="small text-muted m-0 ui-corner-left-content"
+        role="status" aria-live="polite" 
+        data-spotify-player-target="status">
+        Status: Not connected
+    </p>
+    
+    <button type="button"
+            class="control-button d-none"
+            data-spotify-player-target="playButton"
+            data-action="pointerup->spotify-player#resume"
+            aria-label="Play" title="Play">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </button>
+
+    <button type="button"
+            class="control-button d-none"
+            data-spotify-player-target="pauseButton"
+            data-action="pointerup->spotify-player#pause"
+            aria-label="Pause" title="Pause">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7 5h4v14H7zM13 5h4v14h-4z"/>
+      </svg>
+    </button>
+
+    <button type="button"
+            class="scan-next-button mt-3" 
+            data-action="pointerup->spotify-player#nextAndScan">
+      Scan next
+    </button>
+
+    <button type="button" 
+            class="close-button ui-corner-right-content btn btn-outline-secondary btn-sm" 
+            aria-label="Stop" title="Stop" 
+            data-action="pointerup->spotify-player#stop">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M18.3 5.7a1 1 0 0 0-1.4 0L12 10.6 7.1 5.7a1 1 0 1 0-1.4 1.4L10.6 12l-4.9 4.9a1 1 0 1 0 1.4 1.4L12 13.4l4.9 4.9a1 1 0 0 0 1.4-1.4L13.4 12l4.9-4.9a1 1 0 0 0 0-1.4z"/>
+      </svg>
+    </button>
+  </section>
 </div>

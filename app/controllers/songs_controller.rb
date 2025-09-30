@@ -13,7 +13,7 @@ class SongsController < ApplicationController
   end
 
   def cards
-    @songs = Song.all
+    @songs = Song.all.order(:release_year)
     @pages = Pdf::DeckLayout.new(@songs, cols: 3, rows: 4, flip: :long).pages
 
     respond_to do |format|

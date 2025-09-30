@@ -5,7 +5,6 @@ RSpec.describe "Sessions", type: :request do
     user = User.create!(spotify_uid: "u3", display_name: "X",
                         access_token: "AT", refresh_token: "RT", token_expires_at: 1.hour.from_now)
 
-    # seed a session
     get root_path
     allow_any_instance_of(ActionDispatch::Request).to receive(:session).and_return(session)
     session[:user_id] = user.id
