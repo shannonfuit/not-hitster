@@ -74,8 +74,8 @@ background: linear-gradient(
 }
 
 .card__qr {
-  width: 4cm;
-  height: 4cm;
+  width: 4.2cm;
+  height: 4.2cm;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -87,4 +87,5 @@ background: linear-gradient(
 .card__qr svg {
   background: white;
   display: block;
+  fill: white;
 }
