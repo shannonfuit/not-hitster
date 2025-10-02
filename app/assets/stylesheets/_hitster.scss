@@ -14,6 +14,15 @@ $rainbow-gradient: linear-gradient(
   $clr-smoothie-a40 100%
 );
 
+$rainbow-speaker: radial-gradient(
+  circle at center,
+  $clr-smoothie-a40 0%,
+  $clr-smoothie-a30 25%,
+  $clr-smoothie-a20 50%,
+  $clr-smoothie-a10 75%,
+  $clr-smoothie-a0 100%
+);
+
 $chalk-board-black: #0F2D2E;
 $chalk-white: #FAFAF7;
 
@@ -134,27 +143,55 @@ body {
 /* Remove any default borders the library might add */
 #qr-reader { border: 0 !important; }
   
-/* Big central icon */
+/* Big round central icon */
+/* Big dynamic circular button */
 .control-button {
-    background: none;
-    border: 0;
-    padding: 0;
+    --diam: clamp(80px, 40cqi, 240px);
+  
+    width: var(--diam);
+    height: var(--diam);
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, 
+                rgba(255,255,255,0.35) 0%, 
+                rgba(255,255,255,0.15) 30%, 
+                rgba(0,0,0,0.25) 100%), 
+                $rainbow-speaker;
+    display: grid;
+    place-items: center;
     cursor: pointer;
+    border: 0;
     line-height: 1;
+  
+  // Minimum tap size for accessibility
+  min-width: 56px;
+  min-height: 56px;
 
-    svg {
-        width: 112px;
-        height: 112px;
-        display: block;
-        fill: $gray-700;;
+  // Depth
+  box-shadow: 0 6px 20px rgba(0,0,0,.35);
+  transition: transform 0.12s ease;
+  
+    &:active {
+      transform: scale(0.97);
+      box-shadow:
+        inset 0 4px 8px rgba(255,255,255,0.25),
+        inset 0 -6px 12px rgba(0,0,0,0.5),
+        0 4px 12px rgba(0,0,0,0.5);
     }
-}
+  
+    svg {
+      width: calc(var(--diam) * 0.55);
+      height: calc(var(--diam) * 0.55);
+      fill: $chalk-board-black;
+      display: block;
+    }
+  }
+  
 
 /* Subtle scan next button styled as link */
 .scan-next-button {
     background: none;
     border: 0;
-    color: $gray-600;
+    color: $chalk-white;
     text-decoration: underline;
     font-size: .95rem;
     cursor: pointer;
