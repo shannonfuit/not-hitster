@@ -9,7 +9,7 @@
        ui:show-playgame->ui#showPlayGame
      ">
 
-  <!-- 2) PLAY GAME -->
+  <!-- 1) PLAY GAME -->
   <section data-ui-target="playGame"
            class="ui-component flex-fill d-flex flex-column align-items-center justify-content-evenly text-center">
     <section>
@@ -35,10 +35,10 @@
                   aria: { label: "Sign out" } %>
   </section>
 
-  <!-- 3) SCANNER -->
+  <!-- 2) SCANNER -->
   <section data-ui-target="scanner" class="ui-component flex-fill d-flex flex-column align-items-center justify-content-evenly d-none ui-scanner">
-    <h1 class="title gradient-underline display-4  mb-4">Bart's Hits</h1>
     <div id="qr-reader" class="qr-frame"></div>
+    <h1 class="title gradient-underline display-4  mb-4">Bart's Hits</h1>
 
     <button type="button"
             class="close-button ui-corner-right-content btn btn-outline-secondary btn-sm" 
@@ -50,7 +50,7 @@
     </button>
   </section>
 
-  <!-- 4) CONTROLS -->
+  <!-- 3) CONTROLS -->
   <section data-ui-target="controls" class="ui-component flex-fill d-flex flex-column align-items-center justify-content-evenly text-center">
     <p class="small text-muted m-0 ui-corner-left-content"
         role="status" aria-live="polite" 
