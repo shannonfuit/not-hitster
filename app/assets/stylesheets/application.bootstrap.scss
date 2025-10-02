@@ -4,3 +4,8 @@
 
 html, body { height: 100%; }
 
+.min-dvh-100 {
+    min-height: 100vh;   /* fallback */
+    min-height: 100svh;  /* small viewport (with bars) */
+    min-height: 100dvh;  /* dynamic viewport (updates as bars hide) */
+  }

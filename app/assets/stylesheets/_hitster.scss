@@ -33,6 +33,10 @@ body {
     background-attachment: fixed; 
 }
 
+@media (hover: none) and (pointer: coarse) {
+    body { background-attachment: scroll; }
+}
+
 /* Every full-screen section is a positioning context */
 .ui-component {
     position: relative;
