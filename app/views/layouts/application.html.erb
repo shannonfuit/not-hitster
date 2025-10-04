@@ -24,6 +24,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Indie+Flower&display=swap" rel="stylesheet">
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <script src="https://browser.sentry-cdn.com/8.0.0/bundle.tracing.min.js" crossorigin="anonymous"></script>
+    <script nonce="<%= content_security_policy_nonce %>">
+      Sentry.init({
+        dsn: "<%= ENV['SENTRY_DSN'] %>",
+        integrations: [Sentry.browserTracingIntegration()],
+        tracesSampleRate: 0.2
+      });
+    </script>
+
+
     <script nonce="<%= content_security_policy_nonce %>">
       window.__spotifySDKReady = new Promise((resolve) => {
         window.onSpotifyWebPlaybackSDKReady = () => resolve();
