@@ -1,4 +1,5 @@
 class SongsController < ApplicationController
+  skip_before_action :require_sign_in
   def lookup
     song = Song.find_by(qr_token: params[:qr_token])
     if song&.spotify_uuid.present?
