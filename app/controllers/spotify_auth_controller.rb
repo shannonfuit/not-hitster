@@ -129,7 +129,6 @@ class SpotifyAuthController < ApplicationController
     req = Net::HTTP::Get.new(uri)
     req["Authorization"] = "Bearer #{access_token}"
     req["Accept"]        = "application/json"
-    req["User-Agent"]    = "BartHits/1.0 (+https://your-domain.example)"
 
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true

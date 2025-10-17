@@ -2,9 +2,9 @@
   <div class="cards-grid">
     <% page.cards.each do |song| %>
       <% if page.side == :front %>
-        <%= render 'songs/card_front', song: song %>
+        <%= render 'playlists/card_front', song: song %>
       <% else %>
-        <%= render 'songs/card_back', song: song %>
+        <%= render 'playlists/card_back', song: song %>
       <% end %>
     <% end %>
   </div>

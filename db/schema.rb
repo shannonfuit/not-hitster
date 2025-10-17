@@ -10,9 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_20_113557) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_17_164839) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "playlist_songs", force: :cascade do |t|
+    t.bigint "playlist_id", null: false
+    t.bigint "song_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["playlist_id", "song_id"], name: "index_playlist_songs_on_pl_and_song", unique: true
+    t.index ["playlist_id"], name: "index_playlist_songs_on_playlist_id"
+    t.index ["song_id"], name: "index_playlist_songs_on_song_id"
+  end
+
+  create_table "playlists", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "spotify_url", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_playlists_on_name", unique: true
+  end
 
   create_table "songs", force: :cascade do |t|
     t.string "artist", null: false
@@ -37,4 +55,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_20_113557) do
     t.datetime "updated_at", null: false
     t.index ["spotify_uid"], name: "index_users_on_spotify_uid"
   end
+
+  add_foreign_key "playlist_songs", "playlists"
+  add_foreign_key "playlist_songs", "songs"
 end

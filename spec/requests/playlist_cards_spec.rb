@@ -1,30 +1,32 @@
 require "rails_helper"
 
-RSpec.describe "Songs cards PDF", type: :request do
+RSpec.describe "Playlist cards PDF", type: :request do
+  let!(:playlist) { Playlist.create!(name: "Bart's Hits", spotify_url: 'https://open.spotify.com/playlist/12345') }
+
   before do
     5.times do |i|
-      Song.create!(
-        artist: "Artist #{i+1}",
-        title: "Title #{i+1}",
+      song = Song.create!(
+        artist: "Artist #{i + 1}",
+        title: "Title #{i + 1}",
         release_year: 2000 + i,
-        spotify_uuid: "sp#{i+1}"
+        spotify_uuid: "sp#{i + 1}"
       )
+      PlaylistSong.find_or_create_by!(playlist:, song:)
     end
   end
 
-  describe "GET /songs/cards.html" do
-    it "renders the HTML with cards grid" do
-      get cards_songs_path(format: :html)
+  describe "GET /playlists/:id/cards.html" do
+    it "renders the HTML with cards grid for the playlist" do
+      get cards_playlist_path(playlist, format: :html)
 
       expect(response).to have_http_status(:ok)
       expect(response.body).to include("cards-grid")
-      # smoke check: includes a song value
       expect(response.body).to include("Artist 1")
     end
   end
 
-  describe "GET /songs/cards.pdf" do
-    it "returns a PDF by invoking the exporter on the rendered HTML" do
+  describe "GET /playlists/:id/cards.pdf" do
+    it "returns a PDF by invoking the exporter on the rendered HTML for the playlist" do
       # Arrange: stub Pdf::Exporter so no real Grover/Chromium is launched
       fake_pdf = "%PDF-1.4\n%stub\n"
       exporter_double = instance_double(Pdf::Exporter, to_pdf: fake_pdf)
@@ -34,7 +36,7 @@ RSpec.describe "Songs cards PDF", type: :request do
         .with(kind_of(String), hash_including(:wait_for_selector))
         .and_return(exporter_double)
 
-      get cards_songs_path(format: :pdf)
+      get cards_playlist_path(playlist, format: :pdf)
 
       expect(response).to have_http_status(:ok)
       expect(response.media_type).to eq("application/pdf")

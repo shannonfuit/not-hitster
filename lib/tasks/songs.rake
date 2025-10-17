@@ -1,27 +1,29 @@
+# frozen_string_literal: true
+
 namespace :songs do
-  desc "Dump songs to db/seeds/songs.yml (override with FILE=... and FORMAT=yaml|json)"
+  desc "Dump songs and playlists to JSON (db/seeds/songs.json)"
   task dump: :environment do
-    require "yaml"
     require "json"
     require "fileutils"
 
-    file   = (ENV["FILE"] || Rails.root.join("db", "seeds", "songs.yml")).to_s
-    format = (ENV["FORMAT"] || File.extname(file).delete(".") || "yml").downcase
+    songs_path      = Rails.root.join("db", "seeds", "songs.json")
+    FileUtils.mkdir_p(songs_path.dirname)
 
-    columns = %w[artist title release_year spotify_uuid qr_token]
-    rows = Song.pluck(*columns).map { |vals| columns.zip(vals).to_h }
-
-    FileUtils.mkdir_p(File.dirname(file))
-
-    case format
-    when "yaml", "yml"
-      File.write(file, rows.to_yaml)
-    when "json"
-      File.write(file, JSON.pretty_generate(rows))
-    else
-      abort "Unsupported FORMAT: #{format.inspect}. Use yaml or json."
+    # ---- SONGS ----
+    songs_rows = []
+    Song.includes(:playlists).find_each do |song|
+      songs_rows << {
+        "artist"        => song.artist,
+        "title"         => song.title,
+        "release_year"  => song.release_year,
+        "spotify_uuid"  => song.spotify_uuid,
+        "qr_token"      => song.qr_token,
+        "playlists"     => song.playlists.order(:name).pluck(:name)
+      }
     end
 
-    puts "✅ Dumped #{rows.size} songs to #{file}"
+    File.write(songs_path, JSON.pretty_generate(songs_rows))
+
+    puts "✅ Dumped #{songs_rows.size} songs -> #{songs_path}"
   end
 end

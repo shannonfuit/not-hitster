@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "home#index"
 
-  resources :songs do
-    collection do
+  resources :playlists do
+    member do
       get :cards
     end
   end
