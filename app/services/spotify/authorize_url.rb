@@ -1,4 +1,3 @@
-# app/services/spotify/authorize_url.rb
 module Spotify
   class AuthorizeUrl
     AUTH_URL = URI("https://accounts.spotify.com/authorize")
@@ -16,4 +15,3 @@ module Spotify
     end
   end
 end
-  

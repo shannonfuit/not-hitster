@@ -13,9 +13,11 @@ if File.exist?(songs_path)
       s.spotify_uuid = attrs["spotify_uuid"]
     end
 
-    playlist_names = Array(attrs["playlists"]).presence || [ "All Songs" ]
-    playlist_names.each do |name|
-      playlist = Playlist.find_or_create_by!(name:)
+    playlist_data = Array(attrs["playlists"]).presence || [ { "name" => "All Songs", "spotify_url" => nil } ]
+    playlist_data.each do |pl_attrs|
+      playlist = Playlist.find_or_create_by!(name: pl_attrs["name"]) do |pl|
+        pl.spotify_url = pl_attrs["spotify_url"]
+      end
       PlaylistSong.find_or_create_by!(playlist:, song:)
     end
   end

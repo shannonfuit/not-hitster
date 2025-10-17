@@ -6,10 +6,9 @@ namespace :songs do
     require "json"
     require "fileutils"
 
-    songs_path      = Rails.root.join("db", "seeds", "songs.json")
+    songs_path = Rails.root.join("db", "seeds", "songs.json")
     FileUtils.mkdir_p(songs_path.dirname)
 
-    # ---- SONGS ----
     songs_rows = []
     Song.includes(:playlists).find_each do |song|
       songs_rows << {
@@ -18,7 +17,9 @@ namespace :songs do
         "release_year"  => song.release_year,
         "spotify_uuid"  => song.spotify_uuid,
         "qr_token"      => song.qr_token,
-        "playlists"     => song.playlists.order(:name).pluck(:name)
+        "playlists"     => song.playlists.order(:name).map do |pl|
+          { "name" => pl.name, "spotify_url" => pl.spotify_url }
+        end
       }
     end
 
