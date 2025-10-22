@@ -1,7 +1,10 @@
 <div class="card card--front">
   <% if song %>
-  <em><%= song.artist %></em>
-  <p class="release-year"><%= song.release_year %></p>
-  <strong><%= song.title %></strong>
+    <% if @playlist.barts_hits? %>
+      <img class='extension-icon' src="<%= image_url('bart.svg') %>">
+    <% end %>
+    <em><%= song.artist %></em>
+    <p class="release-year"><%= song.release_year %></p>
+    <strong><%= song.title %></strong>
   <% end %>
 </div>

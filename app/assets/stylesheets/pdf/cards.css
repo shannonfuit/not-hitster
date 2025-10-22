@@ -19,6 +19,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;  
+  position: relative;
 }
 
 .card--front, .card--back {
@@ -73,9 +74,20 @@ background: linear-gradient(
   /* padding: 20pt; */
 }
 
+.card--front .extension-icon {
+  position: absolute;
+  top: 0.25cm;
+  left: 0.25cm;
+  width: 0.75cm;
+  height: 0.75cm;
+  transform: rotate(-20deg);
+  background-color: inherit;
+  border-radius: 50%;
+}
+
 .card__qr {
-  width: 4.2cm;
-  height: 4.2cm;
+  width: 4.3cm;
+  height: 4.3cm;
   display: flex;
   align-items: center;
   justify-content: center;
