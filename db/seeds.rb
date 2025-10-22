@@ -6,12 +6,14 @@ if File.exist?(songs_path)
   data = JSON.parse(File.read(songs_path))
 
   data.each do |attrs|
-    song = Song.find_or_create_by!(qr_token: attrs["qr_token"]) do |s|
-      s.artist       = attrs["artist"]
-      s.title        = attrs["title"]
-      s.release_year = attrs["release_year"]
-      s.spotify_uuid = attrs["spotify_uuid"]
-    end
+    song = Song.find_or_initialize_by(qr_token: attrs["qr_token"])
+    song.assign_attributes(
+      artist:       attrs["artist"],
+      title:        attrs["title"],
+      release_year: attrs["release_year"]
+    )
+    song.spotify_uuid ||= attrs["spotify_uuid"]
+    song.save! if song.changed?
 
     playlist_data = Array(attrs["playlists"]).presence || [ { "name" => "All Songs", "spotify_url" => nil } ]
     playlist_data.each do |pl_attrs|
